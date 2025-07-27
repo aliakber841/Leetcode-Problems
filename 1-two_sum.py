@@ -1,9 +1,9 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-             if nums[i]+nums[j]==target:
-                return [i,j]
-        else:
-         return "No Solution Found"
-        
+        hash_table={}
+        for i,num in enumerate(nums):
+            remainder=target-nums[i]
+            if remainder in hash_table:
+                return [hash_table[remainder],i]
+            hash_table[num]=i
+        return []
