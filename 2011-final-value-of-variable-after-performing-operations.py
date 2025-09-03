@@ -1,0 +1,9 @@
+class Solution(object):
+    def finalValueAfterOperations(self, operations):
+        X=0
+        for i in range(len(operations)):
+            if operations[i]=='--X' or operations[i]=='X--':
+                X-=1
+            elif operations[i]=='++X' or operations[i]=='X++':
+                X+=1
+        return X
