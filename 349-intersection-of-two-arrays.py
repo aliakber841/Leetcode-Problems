@@ -10,3 +10,16 @@ class Solution(object):
                 result.append(nums2[j])
                 del hash_table[nums2[j]]
         return result
+
+# Set Approach
+class Solution(object):
+    def intersection(self, nums1, nums2):
+        result=[]
+        setA=set(nums1)
+        setB=set(nums2)
+
+        for num in setA:
+            if num in setB:
+                result.append(num)
+       
+        return result

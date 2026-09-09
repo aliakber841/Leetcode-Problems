@@ -22,15 +22,27 @@ class Solution(object):
         return False
 
 # Recursion ( Not Good for Both Runtimes)
-# class Solution(object):
-#     def isPowerOfThree(self, n):
-#         if (n<=0):
-#             return False
-#         def power(result):
-#             if (result==n or n==1):
-#                 return True
-#             if (result>n):
-#                 return False
-#             result*=3
-#             return power(result)
-#         return power(1)      
+class Solution(object):
+    def isPowerOfThree(self, n):
+        if (n<=0):
+            return False
+        def power(result):
+            if (result==n or n==1):
+                return True
+            if (result>n):
+                return False
+            result*=3
+            return power(result)
+        return power(1)      
+
+class Solution(object):
+    def isPowerOfThree(self, n):
+        def checkPower(n):
+            if n<=0:
+                return False
+            elif n==1:
+                return True
+            elif (n%3!=0):
+                return False
+            return checkPower(n//3)
+        return checkPower(n)

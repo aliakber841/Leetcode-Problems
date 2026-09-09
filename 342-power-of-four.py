@@ -34,3 +34,15 @@ class Solution(object):
                 return True
             result*=4
         return False
+
+class Solution(object):
+    def isPowerOfFour(self, n):
+        def checkPower(n):
+            if n<=0:
+                return False
+            elif n==1:
+                return True
+            elif (n%4!=0):
+                return False
+            return checkPower(n//4)
+        return checkPower(n)

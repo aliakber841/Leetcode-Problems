@@ -1,0 +1,32 @@
+# Hash Table
+class Solution(object):
+    def containsDuplicate(self, nums):
+        hash_table={}
+        for i in range(len(nums)):
+            if nums[i] not in hash_table:
+                hash_table[nums[i]]=i
+            elif nums[i] in hash_table:
+                return True
+        return False
+        
+# Hash Set
+class Solution(object):
+    def containsDuplicate(self, nums):
+        hash_set=set()
+        for i in range(len(nums)):
+            if nums[i] not in hash_set:
+                hash_set.add(nums[i])
+            elif nums[i] in hash_set:
+                return True
+        return False
+
+# Sorting
+class Solution(object):
+    def containsDuplicate(self, nums):
+        nums.sort()
+        for i in range(1,len(nums)):
+            if nums[i]!=nums[i-1]:
+                continue
+            elif nums[i]==nums[i]:
+                return True
+        return False

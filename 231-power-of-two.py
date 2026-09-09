@@ -20,13 +20,25 @@ class Solution(object):
         return False
     
 # Recursion ( Not Good for Both Runtimes)
-# class Solution(object):
-#     def isPowerOfTwo(self, n):
-#         def power(result):
-#             if(result==n or n==1):
-#                 return True
-#             if (result>n):
-#                 return False
-#             result*=2
-#             return power(result)
-#         return power(1)
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        def power(result):
+            if(result==n or n==1):
+                return True
+            if (result>n):
+                return False
+            result*=2
+            return power(result)
+        return power(1)
+
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        def checkPower(n):
+            if n<=0:
+                return False
+            elif n==1:
+                return True
+            elif (n%2!=0):
+                return False
+            return checkPower(n//2)
+        return checkPower(n)
