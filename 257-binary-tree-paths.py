@@ -4,6 +4,29 @@ class TreeNode(object):
         self.val = val
         self.left = left
         self.right = right
+def path_tree(root,result,path):
+    if not root:
+        return None
+    path+=str(root.val)
+    if not root.left and not root.right:
+        result.append(path)
+    else:
+        path+="->"
+    path_tree(root.left,result,path)
+    path_tree(root.right,result,path)
+    
+class Solution(object):
+    def binaryTreePaths(self, root):
+        result=[]
+        path_tree(root,result,"")
+        return result
+    
+# Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 class Solution(object):
     def binaryTreePaths(self, root):
         result=[]

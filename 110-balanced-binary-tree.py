@@ -4,6 +4,35 @@ class TreeNode(object):
         self.val = val
         self.left = left
         self.right = right
+
+def compare(root):
+    left=-1
+    right=-1
+    if root.left:
+        left=compare(root.left)
+        if left==-1:
+            return -1
+    if root.right:
+        right=compare(root.right)
+        if right==-1:
+            return -1
+    if abs(left-right)>1:
+        return -1
+    if left>right:
+        return left+1
+    return right+1
+class Solution(object):
+    def isBalanced(self, root):
+        if not root:
+            return True
+        return compare(root)!=-1        
+    
+# Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 class Solution(object):
     def isBalanced(self, root):
         def subtree(root):

@@ -4,6 +4,28 @@ class TreeNode(object):
         self.val = val
         self.left = left
         self.right = right
+def sum_trees(root1,root2):
+    if not root1 and not root2:
+        return None
+    elif root1 and not root2:
+        return root1
+    elif not root1 and root2:
+        return root2
+    else:
+        root1.val=root1.val+root2.val
+    root1.left=sum_trees(root1.left,root2.left)
+    root1.right=sum_trees(root1.right,root2.right)
+    return root1
+class Solution(object):
+    def mergeTrees(self, root1, root2):
+        return sum_trees(root1,root2)
+    
+# Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 class Solution(object):
     def mergeTrees(self, root1, root2):
         def subtree(root1,root2):

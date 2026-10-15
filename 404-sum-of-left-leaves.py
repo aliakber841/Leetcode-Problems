@@ -4,6 +4,28 @@ class TreeNode(object):
         self.val = val
         self.left = left
         self.right = right
+def calculate(root,isFalse):
+    if not root:
+            return 0
+            
+    if root.left is None and root.right is None:
+        if isFalse:
+            return root.val
+        else:
+            return 0
+    left=calculate(root.left,True)
+    right=calculate(root.right,False)
+    return left+right
+class Solution(object):
+    def sumOfLeftLeaves(self, root):
+        return calculate(root,False)
+        
+# Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 class Solution(object):
     def sumOfLeftLeaves(self, root):
         def subtree(root,is_left):
