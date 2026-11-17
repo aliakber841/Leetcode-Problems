@@ -17,6 +17,7 @@ def bfs(grid,row,col):
                 if grid[newrow][newcol]=="1":
                     grid[newrow][newcol]="0"
                     queue.append((newrow,newcol))
+                    
 class Solution(object):
     def numIslands(self, grid):
         result=0
